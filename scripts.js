@@ -73,18 +73,18 @@ let win = 'You win'
 let lose = 'You lose'
 let draw = 'It is a tie'
 
-
+let playCounter = document.createElement('p')
+playCounter.textContent =counterPlay
+container.append(playCounter)
 
 buttons.forEach((button) => {
       
     button.addEventListener('click', () => {
         let play = button.className
         let comp = this.getComputerChoice()
-        let counterPlay = 0
+
         x = playRound(play)
-        let playCounter = document.createElement('p')
-        playCounter.textContent =counterPlay
-        container.append(playCounter)
+
         
     })
 
