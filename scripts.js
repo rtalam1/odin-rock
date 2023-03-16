@@ -4,33 +4,36 @@ function getComputerChoice() {
     return choiceArray[randomNumber]
 }
 
-let win = 'You win'
-let lose = 'You lose'
-let draw = 'It is a tie'
 
-function playRound(playerSelection, computerSelection) {
 
+function playRound(playerSelection) {
+    let win = 'You win'
+    let lose = 'You lose'
+    let draw = 'It is a tie'
+    let computerSelection = getComputerChoice()
     if (computerSelection == 'rock' && playerSelection == 'paper') {
-        return win 
+        return win
     }
     else if (computerSelection == 'rock' && playerSelection == 'scissor') {
         return lose
     }
     else if (computerSelection == 'paper' && playerSelection == 'scissor') {
-        return win 
+        return win
     }
     else if (computerSelection == 'paper' && playerSelection == 'rock') {
         return lose
     }
     else if (computerSelection == 'scissor' && playerSelection == 'rock') {
-        return win 
+        return win
     }
     else if (computerSelection == 'scissor' && playerSelection == 'paper') {
-        return lose
+        return draw
     }
     else {
-        return draw 
+        return win
     }
+ 
+    
 }
 
 function game(){
@@ -62,15 +65,27 @@ function game(){
     }
 
 }
+const container = document.querySelector("#container")
 
 const buttons = document.querySelectorAll ("button")
+
+let win = 'You win'
+let lose = 'You lose'
+let draw = 'It is a tie'
+
+
 
 buttons.forEach((button) => {
       
     button.addEventListener('click', () => {
-        let play = this.className
-        let comp = getComputerChoice()
-        console.log(playRound(play,comp))
+        let play = button.className
+        let comp = this.getComputerChoice()
+        let counterPlay = 0
+        x = playRound(play)
+        let playCounter = document.createElement('p')
+        playCounter.textContent =counterPlay
+        container.append(playCounter)
         
     })
+
 })
