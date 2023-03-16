@@ -63,4 +63,14 @@ function game(){
 
 }
 
-game()
+const buttons = document.querySelectorAll ("button")
+
+buttons.forEach((button) => {
+      
+    button.addEventListener('click', () => {
+        let play = this.className
+        let comp = getComputerChoice()
+        console.log(playRound(play,comp))
+        
+    })
+})
